@@ -1,0 +1,4 @@
+instance ansible_ssh_host=128.199.232.20 ansible_ssh_user=root
+
+[secure]
+instance
