@@ -1,0 +1,18 @@
+- name: Create a user named ubuntu
+  user: name=ubuntu group=sudo append=yes password="{{ ubuntu_sudo_password }}" shell=/bin/bash
+  tags:
+    - user
+    - all
+
+- name: Setting up authorized_key for ubuntu user
+  authorized_key: user=ubuntu key="{{ lookup('file', '/home/vinay/.ssh/id_rsa.pub') }}"
+  tags:
+    - user
+    - all
+
+- name: update sshd_config
+  action: template src=sshd.j2 dest=/etc/ssh/sshd_config mode=0644 owner=root
+  tags:
+    - ssh
+    - all
+  notify: restart ssh
