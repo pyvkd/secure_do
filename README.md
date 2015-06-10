@@ -16,6 +16,8 @@ This recipie works perfectly fine with the following:
 
 ## Steps to use
 
+### Please change the instance ip before using the these instructions.
+
 *  Create a sudo password for the ubuntu user
         
         mkpasswd --method=SHA-512
